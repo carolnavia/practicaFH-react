@@ -1,15 +1,29 @@
-const nombre = "Franco";
-const saludar = () => {
-  return `Hola ${nombre}`;
-};
+import { PropTypes } from "prop-types";
 
-const FirstApp = ({ titulo }) => {
+/* const name = "Fernando";
+const saludar = () => {
+  return `Hola ${name}`;
+}; */
+
+const FirstApp = ({ title, name, subTitle }) => {
   return (
     <>
-      <h1>{titulo}</h1>
-      <p> {saludar()}</p>
+      <div data-testid="test-title">{title}</div>
+      <p> {subTitle}</p>
+      <p> {subTitle}</p>
+      <p>{name}</p>
     </>
   );
+};
+
+FirstApp.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
+};
+FirstApp.defaultProps = {
+  name: "Fernando Herrera",
+  subTitle: "No hay Subtitle",
+  // title: "No hay Titulo",
 };
 
 export default FirstApp;
